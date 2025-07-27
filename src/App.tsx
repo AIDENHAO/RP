@@ -5,6 +5,8 @@ import zhCN from 'antd/lib/locale/zh_CN';
 import { AuthProvider } from './contexts/AuthContext';
 import MainLayout from './layouts/MainLayout';
 import Dashboard from './pages/Dashboard';
+import Master from './pages/Master';
+import Tasks from './pages/Tasks';
 import Users from './pages/Users';
 import Products from './pages/Products';
 import Reports from './pages/Reports';
@@ -30,6 +32,8 @@ const App: React.FC = () => {
               }
             >
               <Route index element={<Dashboard />} />
+              <Route path="master" element={<Master />} />
+              <Route path="tasks" element={<Tasks />} />
               <Route path="users" element={<Users />} />
               <Route path="products" element={<Products />} />
               <Route path="reports" element={<Reports />} />

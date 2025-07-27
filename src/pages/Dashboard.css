@@ -230,7 +230,8 @@
 
 /* 宗门建筑容器 */
 .sect-building-container {
-  height: 500px;
+  /* height: 500px; */
+  height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;

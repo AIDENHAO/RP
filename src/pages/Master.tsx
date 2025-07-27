@@ -18,16 +18,16 @@ const Master: React.FC = () => {
   
   // 掌门数据 - 基于人物属性设计文档
   const masterData = {
-    name: '凌霄真人',
-    title: '天玄宗掌门',
+    name: '云逸仙',
+    title: '逍遥宗宗主',
     // 等级境界系统
     realm: {
       stage: '修士阶段',
-      level: '化神期',
-      subLevel: '化神中期',
-      cultivation: 850000,
-      maxCultivation: 1000000,
-      breakthroughThreshold: 900000, // 90%阈值触发顿悟
+      level: '金丹期',
+      subLevel: '金丹中期',
+      cultivation: 120000,
+      maxCultivation: 143862,
+      breakthroughThreshold: 129476, // 90%阈值触发顿悟
     },
     age: 156,
     
@@ -165,66 +165,134 @@ const Master: React.FC = () => {
         <h2 className="master-title">宗门掌门</h2>
       </div>
 
-      {/* 掌门基本信息 */}
-      <Row gutter={[24, 24]}>
-        <Col xs={24} lg={8}>
+      {/* 掌门基本信息 - 独占一行 */}
+      <Row gutter={[24, 24]} style={{ marginBottom: 24 }}>
+        <Col span={24}>
           <Card className="master-info-card" title="掌门信息">
-            <div className="master-profile">
-              <Avatar size={80} icon={<CrownOutlined />} className="master-avatar" />
-              <div className="master-details">
-                <h3 className="master-name">{masterData.name}</h3>
-                <p className="master-title-text">{masterData.title}</p>
-                <Tag color="gold" className="master-level">{masterData.realm.level}</Tag>
-                <Tag color="blue" className="master-sublevel">{masterData.realm.subLevel}</Tag>
-                <p className="master-age">年龄：{masterData.age}岁</p>
+            <div className="master-unified-container">
+              {/* 主要信息区域 */}
+              <div className="master-main-section">
+                {/* 头像与基本信息 */}
+                <div className="master-profile-area">
+                  <div className="master-avatar-section">
+                    <Avatar size={120} icon={<CrownOutlined />} className="master-avatar" />
+                    <div className="avatar-glow"></div>
+                  </div>
+                  
+                  <div className="master-basic-info">
+                    <div className="name-title-section">
+                      <h3 className="master-name">{masterData.name}</h3>
+                      <p className="master-title-text">{masterData.title}</p>
+                    </div>
+                    
+                    <div className="realm-age-section">
+                      <div className="realm-tags">
+                        <Tag color="gold" className="master-level">{masterData.realm.level}</Tag>
+                        <Tag color="blue" className="master-sublevel">{masterData.realm.subLevel}</Tag>
+                      </div>
+                      <p className="master-age">年龄：{masterData.age}岁</p>
+                    </div>
+                  </div>
+                  
+                  {/* 战力显示 */}
+                  <div className="master-combat-section">
+                    <div className="combat-power-display">
+                      <TrophyOutlined className="combat-icon" />
+                      <div className="combat-info">
+                        <span className="combat-label">战力</span>
+                        <span className="combat-value">{masterData.combatStats.combatPower.toLocaleString()}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* 修为进度 */}
+                <div className="cultivation-area">
+                  <div className="cultivation-header">
+                    <div className="cultivation-icon-wrapper">
+                      <span className="cultivation-icon">⚡</span>
+                    </div>
+                    <div className="cultivation-info">
+                      <h4 className="cultivation-title">修为进度</h4>
+                      <span className="cultivation-stats">
+                        {(masterData.realm.cultivation / 10000).toFixed(1)}万 / {(masterData.realm.maxCultivation / 10000).toFixed(1)}万
+                      </span>
+                    </div>
+                  </div>
+                  <div className="cultivation-progress-wrapper">
+                    <Progress 
+                      percent={(masterData.realm.cultivation / masterData.realm.maxCultivation) * 100}
+                      strokeColor={{
+                        '0%': '#d4a574',
+                        '50%': '#f0c896',
+                        '100%': '#d4a574',
+                      }}
+                      trailColor="rgba(212, 165, 116, 0.15)"
+                      showInfo={false}
+                      strokeWidth={10}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-            
-            <Divider />
-            
-            <div className="cultivation-progress">
-              <div className="progress-header">
-                <span>修为进度</span>
-                <span>{(masterData.realm.cultivation / 10000).toFixed(1)}万/{(masterData.realm.maxCultivation / 10000).toFixed(1)}万</span>
+              
+              {/* 状态信息区域 */}
+              <div className="master-status-section">
+                {/* 顿悟状态 */}
+                <div className={`enlightenment-section ${masterData.enlightenment.isActive ? 'enlightenment-active' : 'enlightenment-inactive'}`}>
+                  <div className="enlightenment-header">
+                    <div className="enlightenment-icon">
+                      {masterData.enlightenment.isActive ? '🧘' : '💤'}
+                    </div>
+                    <div className="enlightenment-content">
+                      <h4 className="enlightenment-title">
+                        {masterData.enlightenment.isActive ? '顿悟状态' : '修炼状态'}
+                      </h4>
+                      <p className="enlightenment-description">
+                        {masterData.enlightenment.isActive 
+                          ? `修炼速度提升 ${masterData.enlightenment.speedBonus}%`
+                          : '正常修炼中'
+                        }
+                      </p>
+                      {masterData.enlightenment.isActive && (
+                        <span className="enlightenment-time">
+                          ⏰ 剩余 {masterData.enlightenment.remainingTime} 小时
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                
+                {/* 特殊体质 */}
+                <div className="constitution-area">
+                  <div className="constitution-display">
+                    <div className="constitution-icon">
+                      <span className="body-icon">🔥</span>
+                    </div>
+                    <div className="constitution-details">
+                      <div className="constitution-title-row">
+                        <h4 className="constitution-title">特殊体质</h4>
+                        <Tag 
+                          color={masterData.specialConstitution.rarity === 'legendary' ? 'gold' : 'blue'}
+                          className="constitution-tag"
+                        >
+                          {masterData.specialConstitution.name}
+                        </Tag>
+                      </div>
+                      <p className="constitution-description">
+                        {masterData.specialConstitution.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <Progress 
-                percent={(masterData.realm.cultivation / masterData.realm.maxCultivation) * 100}
-                strokeColor={{
-                  '0%': '#d4a574',
-                  '100%': '#f0c896',
-                }}
-                trailColor="#e8e2d8"
-                showInfo={false}
-              />
-            </div>
-            
-            {/* 顿悟状态 */}
-            <div className={`enlightenment-status ${masterData.enlightenment.isActive ? 'enlightenment-active' : ''}`}>
-              <p className="enlightenment-text">
-                {masterData.enlightenment.isActive 
-                  ? `顿悟状态：修炼速度+${masterData.enlightenment.speedBonus}% (剩余${masterData.enlightenment.remainingTime}小时)`
-                  : '未处于顿悟状态'
-                }
-              </p>
-            </div>
-            
-            {/* 特殊体质 */}
-            <div style={{ marginTop: 16 }}>
-              <div className="progress-header">
-                <span>特殊体质</span>
-                <Tag color={masterData.specialConstitution.rarity === 'legendary' ? 'gold' : 'blue'}>
-                  {masterData.specialConstitution.name}
-                </Tag>
-              </div>
-              <p style={{ color: '#a0522d', fontSize: '13px', margin: '4px 0 0 0' }}>
-                {masterData.specialConstitution.description}
-              </p>
             </div>
           </Card>
         </Col>
+      </Row>
 
-        {/* 基础属性面板 */}
-        <Col xs={24} lg={8}>
+      {/* 基础属性和货币声望 */}
+      <Row gutter={[24, 24]} style={{ marginBottom: 24 }}>
+        <Col xs={24} lg={12}>
           <Card className="master-stats-card" title="基础属性">
             <div className="stats-grid">
               <div className="stat-item">
@@ -319,9 +387,9 @@ const Master: React.FC = () => {
           </Card>
         </Col>
 
-        {/* 货币与声望 */}
-        <Col xs={24} lg={8}>
-          <Card className="master-resources-card" title="货币与声望">
+        {/* 货币资源 */}
+        <Col xs={24} lg={12}>
+          <Card className="master-resources-card" title="货币资源">
             <Row gutter={[16, 16]}>
               <Col span={12}>
                 <Statistic
@@ -348,17 +416,9 @@ const Master: React.FC = () => {
               </Col>
               <Col span={12}>
                 <Statistic
-                  title="名誉值"
-                  value={masterData.reputation.fame}
-                  valueStyle={{ color: '#a574d4' }}
-                />
-              </Col>
-              <Col span={24}>
-                <Statistic
-                  title="战力"
-                  value={masterData.combatStats.combatPower}
-                  valueStyle={{ color: '#e74c3c', fontSize: '20px' }}
-                  prefix={<TrophyOutlined />}
+                  title="世界声望"
+                  value={masterData.currency.worldFame}
+                  valueStyle={{ color: '#8b7355' }}
                 />
               </Col>
             </Row>
@@ -366,10 +426,44 @@ const Master: React.FC = () => {
         </Col>
       </Row>
 
-      {/* 五行亲和度和功法装备 */}
-      <Row gutter={[24, 24]} style={{ marginTop: 24 }}>
+      {/* 声望关系 */}
+      <Row gutter={[24, 24]} style={{ marginBottom: 24 }}>
         <Col xs={24} lg={12}>
-          <Card className="five-elements-card" title="五行亲和度">
+          <Card className="master-reputation-card" title="声望关系">
+            <Row gutter={[16, 16]}>
+              <Col span={24}>
+                <Statistic
+                  title="名誉值"
+                  value={masterData.reputation.fame}
+                  valueStyle={{ color: '#a574d4', fontSize: '16px', fontWeight: 'bold' }}
+                  suffix="/ 10000"
+                />
+              </Col>
+              <Col span={24}>
+                <div style={{ marginTop: '16px' }}>
+                  <h4 style={{ color: '#8b4513', marginBottom: '12px' }}>门派关系</h4>
+                  {Object.entries(masterData.reputation.sectRelations).map(([sect, relation]) => (
+                    <div key={sect} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                      <span style={{ color: '#8b4513' }}>{sect}</span>
+                      <Tag color={relation > 0 ? (relation > 70 ? 'green' : 'blue') : 'red'}>
+                        {relation > 0 ? '+' : ''}{relation}
+                      </Tag>
+                    </div>
+                  ))}
+                </div>
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+        <Col xs={24} lg={12}>
+          {/* 预留空间，可以添加其他内容 */}
+        </Col>
+      </Row>
+
+      {/* 五行亲和度和功法装备 - 独占一行 */}
+      <Row gutter={[24, 24]} style={{ marginBottom: 24 }}>
+        <Col span={24}>
+          <Card className="five-elements-card" title="五行亲和度与功法装备">
             <div className="elements-grid">
               <div className="element-item">
                 <div className="element-icon element-metal">金</div>
@@ -497,9 +591,12 @@ const Master: React.FC = () => {
             </div>
           </Card>
         </Col>
+      </Row>
 
-        <Col xs={24} lg={12}>
-          <Card className="breakthrough-card" title="境界突破">
+      {/* 境界突破 - 独占一行 */}
+      <Row gutter={[24, 24]} style={{ marginBottom: 24 }}>
+        <Col span={24}>
+          <Card className="breakthrough-card" title="境界突破" style={{ textAlign: 'center' }}>
             <div className="breakthrough-info">
               <div className="current-realm">
                 <div className="realm-name">{masterData.realm.level}</div>

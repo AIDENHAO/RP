@@ -32,6 +32,12 @@ const Dashboard: React.FC = () => {
   return (
     <div className="dashboard">
       <Row gutter={[24, 24]}>
+        {/* 中间宗门建筑 */}
+        <Col span={12}>
+          <div className="sect-building-container">
+            <SectBuilding />
+          </div>
+        </Col>
         {/* 左侧统计卡片 */}
         <Col span={6}>
           <div className="stats-column">
@@ -79,13 +85,6 @@ const Dashboard: React.FC = () => {
                 </div>
               </div>
             </Card>
-          </div>
-        </Col>
-
-        {/* 中间宗门建筑 */}
-        <Col span={12}>
-          <div className="sect-building-container">
-            <SectBuilding />
           </div>
         </Col>
 
@@ -157,12 +156,6 @@ const Dashboard: React.FC = () => {
         </Col>
       </Row>
 
-      {/* 底部扣子空间生成 */}
-      <div className="bottom-section">
-        <div className="space-generation">
-          <span className="generation-text">扣子空间生成</span>
-        </div>
-      </div>
     </div>
   );
 };
