@@ -1,0 +1,133 @@
+/* 宗门建筑组件样式 */
+.sect-building {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.building-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  max-height: 400px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* 主建筑动画效果 */
+.main-building {
+  animation: buildingGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes buildingGlow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(212, 165, 116, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 0 15px rgba(212, 165, 116, 0.6));
+  }
+}
+
+/* 修炼点动画效果 */
+.cultivation-points circle {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cultivation-points circle:hover {
+  fill: rgba(212, 165, 116, 0.2);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.8));
+}
+
+.cultivation-points text {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 连接线动画效果 */
+.connection-lines path {
+  stroke-dasharray: 5, 5;
+  animation: flowingEnergy 2s linear infinite;
+}
+
+@keyframes flowingEnergy {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 10;
+  }
+}
+
+/* 能量流动效果 */
+.energy-flow circle {
+  filter: drop-shadow(0 0 4px #ffd700);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .building-svg {
+    max-width: 400px;
+    max-height: 300px;
+  }
+  
+  .cultivation-points text {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .building-svg {
+    max-width: 300px;
+    max-height: 200px;
+  }
+  
+  .cultivation-points circle {
+    r: 15;
+  }
+  
+  .cultivation-points text {
+    font-size: 8px;
+  }
+}
+
+/* 悬浮提示效果 */
+.cultivation-points circle:hover + text {
+  fill: #d4a574;
+  font-weight: bold;
+}
+
+/* 建筑层级效果 */
+.main-building rect,
+.main-building polygon {
+  transition: all 0.3s ease;
+}
+
+.main-building:hover rect,
+.main-building:hover polygon {
+  filter: brightness(1.1);
+}
+
+/* 塔顶特效 */
+.main-building polygon:last-of-type {
+  filter: drop-shadow(0 0 3px #ffd700);
+}
+
+/* 装饰元素动画 */
+.main-building circle:last-child {
+  animation: topGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes topGlow {
+  0% {
+    fill: #ffed4e;
+    filter: drop-shadow(0 0 2px #ffd700);
+  }
+  100% {
+    fill: #ffd700;
+    filter: drop-shadow(0 0 6px #ffd700);
+  }
+}

@@ -1,0 +1,130 @@
+/* 资源管理页面样式 */
+.products-page {
+  padding: 24px;
+}
+
+.products-header {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products-title {
+  color: #5d4e37;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.add-resource-btn {
+  background: linear-gradient(135deg, #d4a574, #f0c896) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  color: #1a2332 !important;
+  font-weight: bold !important;
+}
+
+/* 资源卡片样式 */
+.resource-card {
+  background: linear-gradient(135deg, #f7f3f0, #ede7e0) !important;
+  border: 1px solid #d4c4b0 !important;
+  border-radius: 16px !important;
+  height: 100% !important;
+  transition: all 0.3s ease;
+}
+
+.resource-card .ant-card-body {
+  background: transparent !important;
+  padding: 20px !important;
+}
+
+.resource-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(24, 144, 255, 0.3) !important;
+}
+
+.resource-header {
+  margin-bottom: 16px;
+}
+
+.resource-title-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.resource-icon {
+  font-size: 20px;
+  color: #d4a574;
+  margin-right: 8px;
+}
+
+.resource-name {
+  color: #5d4e37 !important;
+  margin: 0 !important;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.resource-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.resource-inventory {
+  margin-bottom: 16px;
+}
+
+.inventory-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.inventory-label {
+  color: #8b7355;
+  font-size: 14px;
+}
+
+.inventory-value {
+  color: #5d4e37;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.resource-description {
+  color: #8b7355 !important;
+  font-size: 14px !important;
+  margin: 0 !important;
+  line-height: 1.5;
+}
+
+/* 进度条样式 */
+.resource-card .ant-progress-bg {
+  background: linear-gradient(to right, #d4a574 0%, #f0c896 100%) !important;
+}
+
+.resource-card .ant-progress-inner {
+  background-color: #e8e2d8 !important;
+}
+
+/* 标签样式覆盖 */
+.resource-card .ant-tag {
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 8px;
+}
+
+.resource-card .ant-tag-blue {
+  background: rgba(24, 144, 255, 0.1);
+  color: #1890ff;
+  border-color: rgba(24, 144, 255, 0.3);
+}
+
+.resource-card .ant-tag-has-color {
+  border-radius: 12px;
+}

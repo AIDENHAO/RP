@@ -1,0 +1,280 @@
+/* 登录页面样式 */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f1419, #1a2332);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(240, 200, 150, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(26, 35, 50, 0.8) 0%, transparent 50%);
+}
+
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-element {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  animation-delay: 1s;
+}
+
+.floating-element:nth-child(3) {
+  top: 30%;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+.floating-element:nth-child(4) {
+  top: 70%;
+  left: 20%;
+  animation-delay: 3s;
+}
+
+.floating-element:nth-child(5) {
+  top: 40%;
+  left: 50%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.login-card {
+  width: 400px;
+  background: linear-gradient(135deg, #1a2332, #2a3441) !important;
+  border: 1px solid #3a4451 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #d4a574, #f0c896);
+  border-radius: 20px 20px 0 0;
+}
+
+.login-card .ant-card-body {
+  background: transparent !important;
+  padding: 40px 32px 32px 32px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-logo {
+  margin-bottom: 16px;
+}
+
+.logo-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #d4a574, #f0c896);
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: #1a2332;
+  box-shadow: 0 8px 16px rgba(212, 165, 116, 0.3);
+  animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  0% {
+    box-shadow: 0 8px 16px rgba(212, 165, 116, 0.3);
+  }
+  100% {
+    box-shadow: 0 8px 24px rgba(212, 165, 116, 0.6);
+  }
+}
+
+.login-title {
+  color: #ffffff !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  margin: 0 0 8px 0 !important;
+  letter-spacing: 1px;
+}
+
+.login-subtitle {
+  color: #8c9196 !important;
+  font-size: 14px !important;
+  margin: 0 !important;
+}
+
+.login-input {
+  background: rgba(42, 52, 65, 0.5) !important;
+  border: 1px solid #3a4451 !important;
+  border-radius: 12px !important;
+  color: #ffffff !important;
+  height: 48px !important;
+  transition: all 0.3s ease !important;
+}
+
+.login-input:hover {
+  border-color: rgba(212, 165, 116, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(212, 165, 116, 0.1) !important;
+}
+
+.login-input:focus {
+  border-color: #d4a574 !important;
+  box-shadow: 0 0 0 2px rgba(212, 165, 116, 0.2) !important;
+}
+
+.login-input .ant-input {
+  background: transparent !important;
+  border: none !important;
+  color: #ffffff !important;
+}
+
+.login-input .ant-input::placeholder {
+  color: #8c9196 !important;
+}
+
+.login-checkbox {
+  color: #8c9196 !important;
+}
+
+.login-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #d4a574 !important;
+  border-color: #d4a574 !important;
+}
+
+.login-button {
+  height: 48px !important;
+  background: linear-gradient(135deg, #d4a574, #f0c896) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  color: #1a2332 !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  letter-spacing: 1px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3) !important;
+}
+
+.login-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4) !important;
+  background: linear-gradient(135deg, #f0c896, #d4a574) !important;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #3a4451;
+}
+
+.login-footer p {
+  color: #8c9196 !important;
+  margin: 0 !important;
+  font-size: 14px;
+}
+
+.register-link {
+  color: #d4a574 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: color 0.3s ease !important;
+}
+
+.register-link:hover {
+  color: #f0c896 !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .login-card {
+    width: 90%;
+    margin: 20px;
+  }
+  
+  .login-card .ant-card-body {
+    padding: 32px 24px 24px 24px;
+  }
+  
+  .login-title {
+    font-size: 24px !important;
+  }
+  
+  .logo-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+  }
+}
+
+/* Ant Design 组件样式覆盖 */
+.ant-form-item {
+  margin-bottom: 20px !important;
+}
+
+.ant-form-item-label > label {
+  color: #8c9196 !important;
+}
+
+.ant-checkbox-wrapper {
+  color: #8c9196 !important;
+}
+
+.ant-input-affix-wrapper {
+  background: rgba(42, 52, 65, 0.5) !important;
+  border: 1px solid #3a4451 !important;
+  border-radius: 12px !important;
+}
+
+.ant-input-affix-wrapper:hover {
+  border-color: rgba(212, 165, 116, 0.5) !important;
+}
+
+.ant-input-affix-wrapper-focused {
+  border-color: #d4a574 !important;
+  box-shadow: 0 0 0 2px rgba(212, 165, 116, 0.2) !important;
+}
