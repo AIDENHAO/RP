@@ -13,6 +13,9 @@ import {
   MenuUnfoldOutlined,
   CrownOutlined,
   CheckSquareOutlined,
+  BookOutlined,
+  ToolOutlined,
+  ExperimentOutlined,
 } from '@ant-design/icons';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts';
@@ -61,6 +64,21 @@ const MainLayout: React.FC = () => {
       key: '/documents',
       icon: <FileTextOutlined />,
       label: '修炼体系',
+    },
+    {
+      key: '/technique-hall',
+      icon: <BookOutlined />,
+      label: '功法阁',
+    },
+    {
+      key: '/weapon-hall',
+      icon: <ToolOutlined />,
+      label: '兵器阁',
+    },
+    {
+      key: '/elixir-hall',
+      icon: <ExperimentOutlined />,
+      label: '丹药阁',
     },
     {
       key: '/settings',

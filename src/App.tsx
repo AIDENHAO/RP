@@ -12,6 +12,9 @@ import Products from './pages/Products';
 import Reports from './pages/Reports';
 import Documents from './pages/Documents';
 import Settings from './pages/Settings';
+import TechniqueHall from './pages/TechniqueHall';
+import WeaponHall from './pages/WeaponHall';
+import ElixirHall from './pages/ElixirHall';
 import Login from './pages/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
@@ -38,6 +41,9 @@ const App: React.FC = () => {
               <Route path="products" element={<Products />} />
               <Route path="reports" element={<Reports />} />
               <Route path="documents" element={<Documents />} />
+              <Route path="technique-hall" element={<TechniqueHall />} />
+              <Route path="weapon-hall" element={<WeaponHall />} />
+              <Route path="elixir-hall" element={<ElixirHall />} />
               <Route path="settings" element={<Settings />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>

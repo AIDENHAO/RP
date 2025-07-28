@@ -85,7 +85,7 @@ const Users: React.FC = () => {
           retreat: { color: 'blue', text: '闭关' },
           mission: { color: 'orange', text: '任务中' },
         };
-        const config = statusConfig[status];
+        const config = statusConfig[status as keyof typeof statusConfig];
         return <Tag color={config.color}>{config.text}</Tag>;
       },
     },

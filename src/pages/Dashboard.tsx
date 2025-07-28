@@ -43,8 +43,9 @@ const Dashboard: React.FC = () => {
           <div className="stats-column">
             <Card className="stat-card spirit-stone">
               <div className="stat-header">
-                <div className="stat-icon">💎</div>
+                {/* <div className="stat-icon">💎</div> */}
                 <span className="stat-title">灵石池</span>
+                <div className="stat-badge">+100</div>
               </div>
               <div className="stat-content">
                 <div className="stat-number">280</div>
@@ -58,8 +59,9 @@ const Dashboard: React.FC = () => {
 
             <Card className="stat-card contribution">
               <div className="stat-header">
-                <div className="stat-icon">🏆</div>
+                {/* <div className="stat-icon">🏆</div> */}
                 <span className="stat-title">贡献统计</span>
+                <div className="stat-badge">+100</div>
               </div>
               <div className="stat-content">
                 <div className="stat-number">280</div>
@@ -73,8 +75,9 @@ const Dashboard: React.FC = () => {
 
             <Card className="stat-card sect-reputation">
               <div className="stat-header">
-                <div className="stat-icon">⭐</div>
+                {/* <div className="stat-icon">⭐</div> */}
                 <span className="stat-title">宗誉值</span>
+                <div className="stat-badge">+100</div>
               </div>
               <div className="stat-content">
                 <div className="stat-number">280</div>

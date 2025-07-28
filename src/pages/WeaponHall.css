@@ -1,0 +1,300 @@
+.weapon-hall {
+  padding: 24px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.weapon-hall .ant-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weapon-hall .ant-card-head {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+
+.weapon-hall .ant-card-head-title {
+  color: white;
+  font-weight: 600;
+}
+
+.weapon-hall .ant-statistic-title {
+  color: #666;
+  font-size: 14px;
+}
+
+.weapon-hall .ant-statistic-content {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.weapon-hall .ant-table-thead > tr > th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #333;
+}
+
+.weapon-hall .ant-table-tbody > tr:hover > td {
+  background: #fff2f0;
+}
+
+.weapon-hall .ant-tag {
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.weapon-hall .ant-progress-text {
+  font-size: 12px;
+  color: #666;
+}
+
+.weapon-hall .ant-badge-status-text {
+  font-size: 12px;
+  color: #52c41a;
+}
+
+.weapon-hall .ant-space {
+  margin-bottom: 16px;
+}
+
+.weapon-hall .ant-input-search {
+  border-radius: 6px;
+}
+
+.weapon-hall .ant-select {
+  border-radius: 6px;
+}
+
+.weapon-hall .ant-btn-link {
+  padding: 4px 8px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.weapon-hall .ant-btn-link:hover {
+  background: #fff2f0;
+}
+
+.weapon-hall .ant-modal-header {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  border-radius: 8px 8px 0 0;
+}
+
+.weapon-hall .ant-modal-title {
+  color: white;
+  font-weight: 600;
+}
+
+.weapon-hall .ant-descriptions-item-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.weapon-hall .ant-descriptions-item-content {
+  color: #666;
+}
+
+.weapon-hall .ant-divider {
+  margin: 16px 0;
+}
+
+.weapon-hall .ant-list-item {
+  padding: 8px 0;
+}
+
+.weapon-hall .ant-alert {
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+/* 兵器类型图标样式 */
+.weapon-hall .anticon {
+  margin-right: 8px;
+}
+
+/* 统计卡片特殊样式 */
+.weapon-hall .ant-statistic .ant-statistic-content-prefix {
+  color: #ff6b6b;
+  font-size: 20px;
+}
+
+.weapon-hall .ant-statistic .ant-statistic-content-suffix {
+  color: #666;
+  font-size: 14px;
+}
+
+/* 表格行样式 */
+.weapon-hall .ant-table-tbody > tr > td {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+
+/* 进度条样式 */
+.weapon-hall .ant-progress-bg {
+  background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+}
+
+/* 标签颜色样式 */
+.weapon-hall .ant-tag-checkable {
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.weapon-hall .ant-tag-checkable:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 模态框内容样式 */
+.weapon-hall .ant-modal-body {
+  padding: 24px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* 兵器卡片特殊样式 */
+.weapon-hall .weapon-card {
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.weapon-hall .weapon-card:hover {
+  border-color: #ff6b6b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+}
+
+/* 耐久度警告样式 */
+.weapon-hall .durability-warning {
+  color: #ff4d4f;
+  font-weight: 600;
+}
+
+.weapon-hall .durability-normal {
+  color: #52c41a;
+}
+
+.weapon-hall .durability-low {
+  color: #faad14;
+}
+
+/* 附魔效果样式 */
+.weapon-hall .enchantment-item {
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 4px 0;
+  border-left: 3px solid #1890ff;
+}
+
+/* 宗门建筑卡片样式 */
+.weapon-hall .sect-building-card {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.weapon-hall .sect-building-card .ant-card-body {
+  padding: 0;
+  background: transparent;
+}
+
+.weapon-hall .sect-building-container {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.weapon-hall .building-info {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  text-align: center;
+}
+
+.weapon-hall .building-info h4 {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .weapon-hall {
+    padding: 16px;
+  }
+  
+  .weapon-hall .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  .weapon-hall .ant-table {
+    font-size: 12px;
+  }
+  
+  .weapon-hall .ant-space {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .weapon-hall .ant-input-search,
+  .weapon-hall .ant-select {
+    width: 100% !important;
+  }
+  
+  .weapon-hall .sect-building-container {
+    height: 200px;
+  }
+}
+
+/* 兵器类型特殊样式 */
+.weapon-hall .weapon-type-sword {
+  color: #1890ff;
+}
+
+.weapon-hall .weapon-type-shield {
+  color: #52c41a;
+}
+
+.weapon-hall .weapon-type-magic {
+  color: #722ed1;
+}
+
+.weapon-hall .weapon-type-tool {
+  color: #fa8c16;
+}
+
+/* 品级特殊样式 */
+.weapon-hall .rarity-common {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.weapon-hall .rarity-uncommon {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.weapon-hall .rarity-rare {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.weapon-hall .rarity-epic {
+  background: #f9f0ff;
+  color: #722ed1;
+}
+
+.weapon-hall .rarity-legendary {
+  background: #fff2e8;
+  color: #fa8c16;
+}
+
+.weapon-hall .rarity-mythical {
+  background: #fff1f0;
+  color: #f5222d;
+} 
